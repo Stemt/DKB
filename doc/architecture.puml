@@ -2,13 +2,13 @@
 
 
 
-component LocalDataStore
+component DataStore
 
-interface DataStore
-LocalDataStore - DataStore : provide
+interface DataStoreAPI
+DataStore - DataStoreAPI : provide
 
 component NetworkNode
-DataStore <. NetworkNode : require
+DataStoreAPI <. NetworkNode : require
 
 interface NodeDiscovery
 NetworkNode -- NodeDiscovery: provide
