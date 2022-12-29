@@ -1,0 +1,23 @@
+@startuml
+
+
+
+component LocalDataStore
+
+interface DataStore
+LocalDataStore - DataStore : provide
+
+component NetworkNode
+DataStore <. NetworkNode : require
+
+interface NodeDiscovery
+NetworkNode -- NodeDiscovery: provide
+NodeDiscovery <.. NetworkNode : require
+
+interface NodeAPI
+NetworkNode - NodeAPI : provide
+
+component Client
+NodeAPI <. Client : require
+
+@enduml
